@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Web & UX Exam Portal</title>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;600;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#1b2160;--ink:#16193d;--paper:#f6f7ff;--line:#c9cdf0;--accent:#ff5d8f;--ok:#12805c;--bad:#c4264d;--muted:#5a5f8f;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);color-scheme:light}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*,*::before,*::after{box-sizing:inherit}
+body{margin:0;min-height:100vh;font-family:'Bricolage Grotesque',system-ui,sans-serif;color:var(--ink);background-color:var(--bg);
+background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='900' height='600' viewBox='0 0 900 600' fill='none' stroke='%238f99ff' stroke-opacity='.35' stroke-width='2'%3E%3Cpath d='M0 40h900M0 80h900M0 120h900M0 160h900M0 200h900M0 240h900M0 280h900M0 320h900M0 360h900M0 400h900M0 440h900M0 480h900M0 520h900M0 560h900' stroke-opacity='.06'/%3E%3Crect x='60' y='50' width='360' height='250' rx='10'/%3E%3Cpath d='M60 90h360M84 70h.1M104 70h.1M124 70h.1' stroke-linecap='round' stroke-width='6'/%3E%3Crect x='84' y='112' width='150' height='24' rx='4'/%3E%3Crect x='84' y='152' width='110' height='110' rx='6'/%3E%3Cpath d='M212 160h180M212 184h150M212 208h170M212 232h120'/%3E%3Cpath d='M520 90l-70 70 70 70M640 90l70 70-70 70M600 70l-40 180' stroke='%23ff5d8f' stroke-opacity='.55' stroke-width='6' stroke-linecap='round' stroke-linejoin='round'/%3E%3Crect x='470' y='340' width='380' height='200' rx='12'/%3E%3Ccircle cx='520' cy='400' r='22'/%3E%3Cpath d='M560 390h220M560 412h160M495 460h330M495 490h260'/%3E%3Cpath d='M100 360l60 60 40-40M100 470q60-60 120 0t120 0'/%3E%3Cpath d='M300 330l30 90 20-30 30 20z' fill='%23ff5d8f' fill-opacity='.4' stroke='%23ff5d8f'/%3E%3C/svg%3E");
+background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='900' height='600' viewBox='0 0 900 600' fill='none' stroke='%238f99ff' stroke-opacity='.4' stroke-width='2.5' stroke-linejoin='round' stroke-linecap='round'%3E%3Cpath d='M60 110L150 70L240 110L150 150ZM100 132v40q50 30 100 0v-40M240 110v50' stroke='%23ff5d8f' stroke-opacity='.6' stroke-width='4'/%3E%3Ccircle cx='240' cy='166' r='6' stroke='%23ff5d8f' stroke-opacity='.6'/%3E%3Cpath d='M480 90q60-25 120 0q60-25 120 0v150q-60-25-120 0q-60-25-120 0zM600 90v150M500 125q40-12 80 0M500 155q40-12 80 0M500 185q40-12 80 0M620 125q40-12 80 0M620 155q40-12 80 0M620 185q40-12 80 0'/%3E%3Crect x='480' y='490' width='250' height='32' rx='4'/%3E%3Crect x='500' y='456' width='210' height='34' rx='4'/%3E%3Crect x='490' y='420' width='230' height='36' rx='4'/%3E%3Cpath d='M510 438h60M520 473h50M500 506h80'/%3E%3Cg transform='rotate(-40 200 480)'%3E%3Crect x='70' y='462' width='250' height='36' rx='4'/%3E%3Cpath d='M320 462l55 18-55 18M110 462v36M320 462v36'/%3E%3C/g%3E%3Ccircle cx='400' cy='290' r='42' stroke='%23ff5d8f' stroke-opacity='.6' stroke-width='4'/%3E%3Cpath d='M385 334h30M388 348h24M400 222v-22M352 242l-14-14M448 242l14-14M342 290h-20M458 290h20' stroke='%23ff5d8f' stroke-opacity='.6' stroke-width='4'/%3E%3Cpath d='M385 270q15-20 30 0' stroke-opacity='.6'/%3E%3Cpath d='M60 250h44v44H60zM72 272l10 10 16-20M128 272h120M60 320h44v44H60zM128 342h100M60 390h44v44H60zM128 412h80' /%3E%3Cpath d='M800 80l40 40M830 70l-70 70M780 300l60-60M820 520l-50-60' stroke-opacity='.15'/%3E%3C/svg%3E");background-size:900px 600px;background-attachment:fixed}
+body::before{content:"";position:fixed;inset:0;background:linear-gradient(160deg,rgba(27,33,96,.55),rgba(27,33,96,.9));pointer-events:none}
+main{position:relative;max-width:720px;margin:0 auto;padding:28px 16px 48px}
+h1{color:#fff;font-size:clamp(2rem,6vw,3.2rem);font-weight:800;line-height:1.05;margin:8px 0 8px;letter-spacing:-.02em}
+.sub{color:#d5d9ff;margin:0 0 24px;font-size:1.05rem;max-width:52ch}
+.card{background:var(--paper);border-radius:14px;padding:24px;box-shadow:0 18px 50px rgba(5,8,40,.45)}
+label{display:block;font-weight:600;margin-bottom:6px}
+input[type=text]{width:100%;font:inherit;padding:12px 14px;border:2px solid var(--line);border-radius:8px;background:#fff;color:var(--ink)}
+input[type=text]:focus,button:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+.facts{display:flex;gap:18px;flex-wrap:wrap;margin:0 0 20px;padding:0;list-style:none;color:var(--muted)}
+.btn{font:inherit;font-weight:600;border:0;border-radius:8px;padding:13px 22px;background:var(--accent);color:#fff;cursor:pointer;margin-top:16px}
+.btn.alt{background:transparent;color:var(--ink);border:2px solid var(--ink)}
+.btn:disabled{opacity:.4;cursor:not-allowed}
+.top{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;color:var(--muted);font-weight:600}
+.bar{height:8px;background:var(--line);border-radius:4px;overflow:hidden;margin-bottom:22px}
+.bar i{display:block;height:100%;background:var(--accent);transition:width .3s}
+h2{font-size:1.4rem;line-height:1.3;margin:0 0 18px}
+.opt{display:block;width:100%;text-align:left;font:inherit;padding:14px 16px;margin-bottom:10px;border:2px solid var(--line);border-radius:10px;background:#fff;color:var(--ink);cursor:pointer}
+.opt:hover:not(:disabled){border-color:var(--ink)}
+.opt.sel{border-color:var(--ink);background:#e8eaff}
+.score{font-size:4rem;font-weight:800;line-height:1;margin:0}
+.rev{border-top:1px solid var(--line);padding:14px 0}
+.rev p{margin:4px 0}.bad{color:var(--bad)}.ok{color:var(--ok)}
+.hide{display:none}
+.stats{display:flex;gap:24px;flex-wrap:wrap;margin:0 0 14px}.stats b{display:block;font-size:1.8rem}
+table{width:100%;border-collapse:collapse;min-width:480px}th,td{text-align:left;padding:9px 10px;border-bottom:1px solid var(--line)}th{color:var(--muted);font-weight:600}
+.pill{font-weight:600}.btn.link{background:transparent;color:var(--ink);border:2px solid var(--ink);margin-left:8px}
+.low{color:var(--bad)}
+@media (prefers-reduced-motion:reduce){.bar i{transition:none}}
+</style>
+</head>
+<body>
+<main>
+<h1>Web &amp; UX Design Exam</h1>
+<p class="sub">HTML, CSS, accessibility and UX fundamentals. Every attempt draws a fresh set of questions with shuffled answers.</p>
+
+<section class="card" id="start">
+  <label for="name">Candidate name</label>
+  <input type="text" id="name" placeholder="Enter your full name" autocomplete="name">
+  <ul class="facts"><li>10 questions</li><li>10 minutes</li><li>Pass mark 60%</li></ul>
+  <button class="btn" id="go">Start exam</button><button class="btn link" id="recs">Student records</button>
+</section>
+
+<section class="card hide" id="quiz" aria-live="polite">
+  <div class="top"><span id="count"></span><span id="timer"></span></div>
+  <div class="bar"><i id="fill"></i></div>
+  <h2 id="q"></h2>
+  <div id="opts"></div>
+  <button class="btn" id="next" disabled>Next question</button>
+</section>
+
+<section class="card hide" id="result">
+  <p id="who" style="margin:0 0 6px;color:var(--muted);font-weight:600"></p>
+  <p class="score" id="pct"></p>
+  <p id="verdict" style="font-size:1.2rem;font-weight:600;margin:8px 0 16px"></p>
+  <div id="review"></div>
+  <button class="btn" id="retake">Retake with new questions</button>
+</section>
+<section class="card hide" id="records">
+  <h2>Student records</h2>
+  <p id="recnote" style="color:var(--muted);margin:0 0 14px"></p>
+  <div class="stats" id="stats"></div>
+  <div style="overflow-x:auto"><table id="tbl"></table></div>
+  <button class="btn alt" id="back">Back</button>
+</section>
+</main>
+
+<script>
+const BANK=[
+["Which HTML element is the most appropriate for the main navigation links of a page?",["<nav>","<menu>","<section>","<aside>"],0],
+["What does the alt attribute on an img element provide?",["A tooltip on hover","Text for screen readers and when the image fails to load","The image caption","The image file name"],1],
+["Which CSS property creates space between a border and the content of an element?",["margin","padding","gap","outline"],1],
+["In the CSS box model, what sits outermost?",["Content","Padding","Border","Margin"],3],
+["Which CSS layout method is designed for one-dimensional rows or columns?",["Flexbox","Floats","Tables","Grid areas only"],0],
+["Which CSS layout method is designed for two-dimensional layouts?",["inline-block","Flexbox","CSS Grid","position: absolute"],2],
+["Which tag gives a page its title in the browser tab?",["<header>","<h1>","<meta>","<title>"],3],
+["What is the purpose of a media query?",["Load video files","Apply styles based on conditions like screen width","Compress images","Cache stylesheets"],1],
+["Which heading structure is best for accessibility?",["Skip levels for styling","Use only h1","Use headings in logical order without skipping","Use bold paragraphs instead"],2],
+["What does WCAG recommend as the minimum contrast ratio for normal body text (AA)?",["2:1","3:1","4.5:1","10:1"],2],
+["Which attribute makes a form field mandatory in HTML5?",["needed","required","validate","mandatory"],1],
+["What does 'mobile-first' design mean?",["Design only for phones","Start with the small-screen layout and enhance for larger screens","Build a native app first","Hide desktop content"],1],
+["Which principle says related items should be placed close together?",["Proximity","Contrast","Repetition","Alignment"],0],
+["What is a wireframe?",["A finished visual design","A low-fidelity layout sketch of a screen","A coding framework","A user survey"],1],
+["Which method uncovers real usability problems by watching people complete tasks?",["Usability testing","Code review","A/B pricing","Keyword research"],0],
+["Which unit is relative to the root element's font size?",["px","em","rem","pt"],2],
+["Which CSS property controls the stacking order of positioned elements?",["order","z-index","float","display"],1],
+["What does the semantic element <article> represent?",["A sidebar ad","A self-contained piece of content","A form group","A page script"],1],
+["Which HTML attribute links a label to its input?",["for","name","href","id only"],0],
+["What does 'responsive design' primarily achieve?",["Faster servers","Layouts that adapt to different screen sizes","Encrypted forms","Offline mode"],1],
+["Which CSS selector targets an element with id 'hero'?",[".hero","#hero","hero","*hero"],1],
+["What is the main goal of a UX persona?",["Brand logo design","Represent a typical user's needs and goals","List server specs","Track bugs"],1],
+["Which HTML element embeds a JavaScript file or inline script?",["<js>","<link>","<script>","<code>"],2],
+["What does Fitts's Law suggest about buttons?",["Smaller is better","Larger, closer targets are quicker to hit","Use only red","Hide primary actions"],1],
+["Which CSS property makes a flex container's children wrap onto new lines?",["flex-flow: none","flex-wrap: wrap","align-items: wrap","wrap-content"],1],
+["What is a call to action (CTA)?",["A bug report","A prompt that tells users the next step to take","A stylesheet rule","A server log"],1],
+["Which tag is used for the largest, most important heading?",["<head>","<h6>","<h1>","<title>"],2],
+["What is the benefit of using a design system?",["Consistency and faster design and development","Fewer users","Larger file sizes","No need for testing"],0]
+];
+const N=10,TIME=600,PASS=60;
+const $=id=>document.getElementById(id);
+const shuffle=a=>{a=a.slice();for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a};
+let used=new Set(),exam=[],idx=0,answers=[],picked=null,left=TIME,tick=null,name='';
+
+function build(){
+  let fresh=BANK.map((_,i)=>i).filter(i=>!used.has(i));
+  let pick=shuffle(fresh).slice(0,N);
+  if(pick.length<N){ // bank exhausted: restart rotation, keep what was just picked
+    const rest=shuffle(BANK.map((_,i)=>i).filter(i=>!pick.includes(i))).slice(0,N-pick.length);
+    used=new Set(pick);pick=pick.concat(rest);
+  }
+  pick.forEach(i=>used.add(i));
+  return shuffle(pick).map(i=>{
+    const [q,o,a]=BANK[i];
+    const opts=shuffle(o.map((t,k)=>({t,ok:k===a})));
+    return {q,opts};
+  });
+}
+function show(id){['start','quiz','result','records'].forEach(s=>$(s).classList.toggle('hide',s!==id))}
+function start(){
+  name=$('name').value.trim();
+  if(!name){$('name').focus();$('name').placeholder='Please enter your name first';return}
+  exam=build();idx=0;answers=[];left=TIME;show('quiz');render();
+  clearInterval(tick);tick=setInterval(()=>{left--;clock();if(left<=0)finish()},1000);clock();
+}
+function clock(){
+  const m=Math.floor(left/60),s=String(left%60).padStart(2,'0');
+  $('timer').textContent='Time left '+m+':'+s;$('timer').classList.toggle('low',left<60);
+}
+function render(){
+  const e=exam[idx];picked=null;
+  $('count').textContent='Question '+(idx+1)+' of '+N;
+  $('fill').style.width=(idx/N*100)+'%';
+  $('q').textContent=e.q;
+  $('opts').innerHTML='';
+  e.opts.forEach((o,i)=>{
+    const b=document.createElement('button');b.className='opt';b.textContent=o.t;
+    b.onclick=()=>{picked=i;[...$('opts').children].forEach((c,k)=>c.classList.toggle('sel',k===i));$('next').disabled=false};
+    $('opts').appendChild(b);
+  });
+  $('next').disabled=true;
+  $('next').textContent=idx===N-1?'Submit exam':'Next question';
+}
+function next(){answers[idx]=picked;idx++;idx<N?render():finish()}
+function finish(){
+  clearInterval(tick);
+  let score=0;const rev=[];
+  exam.forEach((e,i)=>{
+    const a=answers[i],right=e.opts.findIndex(o=>o.ok);
+    if(a===right)score++;
+    else rev.push(`<div class="rev"><p><b>${e.q}</b></p><p class="bad">Your answer: ${a==null||a===undefined?'No answer':e.opts[a].t}</p><p class="ok">Correct answer: ${e.opts[right].t}</p></div>`);
+  });
+  const pct=Math.round(score/N*100);
+  $('who').textContent=name;
+  $('pct').textContent=pct+'%';
+  $('verdict').textContent=(pct>=PASS?'Passed':'Not passed yet')+' – '+score+' of '+N+' correct';
+  $('review').innerHTML=rev.length?'<h3>Review your mistakes</h3>'+rev.join(''):'<p class="ok"><b>Perfect score. No mistakes to review.</b></p>';
+  saveRecord(pct,score);show('result');window.scrollTo(0,0);
+}
+let dbp=null,userp=null;
+(async()=>{try{dbp=await claude.use('db');userp=await claude.use('user')}catch(e){}})();
+const LK='examRecords';
+function localGet(){try{return JSON.parse(localStorage.getItem(LK)||'[]')}catch(e){return[]}}
+function localAdd(r){try{const a=localGet();a.push(r);localStorage.setItem(LK,JSON.stringify(a))}catch(e){}}
+async function saveRecord(pct,score){
+  const r={name,score,total:N,pct,passed:pct>=PASS,at:new Date().toISOString(),secs:TIME-Math.max(left,0)};
+  localAdd(r);
+  try{if(dbp)await dbp.collection('results').add(r)}catch(e){}
+}
+async function showRecords(){
+  show('records');
+  let rows=null,admin=false;
+  try{admin=!!(userp&&await userp.canEdit())}catch(e){}
+  if(dbp&&admin){try{const s=await dbp.collection('results').orderBy('at','desc').get();rows=s.docs.map(d=>d.data())}catch(e){}}
+  const all=rows!==null;
+  if(!all)rows=localGet().slice().reverse();
+  $('recnote').textContent=all?'Showing every student who has taken the exam.':'Showing attempts made on this device. The exam owner sees all students when signed in.';
+  const n=rows.length,avg=n?Math.round(rows.reduce((a,r)=>a+r.pct,0)/n):0,pr=n?Math.round(rows.filter(r=>r.passed).length/n*100):0;
+  $('stats').innerHTML='<div><b>'+n+'</b>Attempts</div><div><b>'+avg+'%</b>Average score</div><div><b>'+pr+'%</b>Pass rate</div>';
+  const t=$('tbl');t.innerHTML='<tr><th>Student</th><th>Score</th><th>Result</th><th>Time</th><th>Date</th></tr>';
+  if(!n){const tr=t.insertRow(),c=tr.insertCell();c.colSpan=5;c.textContent='No attempts yet. Records appear here after a student submits the exam.';return}
+  rows.forEach(r=>{
+    const tr=t.insertRow();
+    [r.name,r.score+'/'+r.total+' ('+r.pct+'%)',r.passed?'Passed':'Not passed',Math.floor(r.secs/60)+':'+String(r.secs%60).padStart(2,'0'),new Date(r.at).toLocaleString()].forEach((v,i)=>{
+      const c=tr.insertCell();c.textContent=v;if(i===2){c.className='pill '+(r.passed?'ok':'bad')}
+    });
+  });
+}
+$('recs').onclick=showRecords;
+$('back').onclick=()=>show('start');
+$('go').onclick=start;
+$('name').addEventListener('keydown',e=>{if(e.key==='Enter')start()});
+$('next').onclick=next;
+$('retake').onclick=start;
+</script>
+</body>
+</html>
